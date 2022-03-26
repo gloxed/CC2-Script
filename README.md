@@ -1,9 +1,5 @@
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
 
-local CarCollection = workspace:FindFirstChild("CarCollection");
-local rF = ReplicatedStorage:FindFirstChild("rF");
-local rE = ReplicatedStorage:FindFirstChild("rE");
-
 local UI = Material.Load({
      Title = "Getting Started",
      Style = 3,
