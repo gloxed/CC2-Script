@@ -1,24 +1,69 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/WhoIsDanix/Andronema/master/main.lua"))()
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
 
-local window = Library:Create("CC2", {
-    MainFrame = Color3.fromRGB(45, 45, 63),
-    TopBar = Color3.fromRGB(30, 30, 42),
-    TabBar = Color3.fromRGB(30, 30, 42),
-    Label = Color3.fromRGB(67, 67, 95),
-    LabelHighlighted = Color3.fromRGB(49, 49, 70),
-    Button = Color3.fromRGB(67, 67, 95),
-    Toggle = Color3.fromRGB(67, 67, 95),
-    TextBox = Color3.fromRGB(67, 67, 95),
-    Slider = Color3.fromRGB(67, 67, 95)
+local CarCollection = workspace:FindFirstChild("CarCollection");
+local rF = ReplicatedStorage:FindFirstChild("rF");
+local rE = ReplicatedStorage:FindFirstChild("rE");
+
+local UI = Material.Load({
+     Title = "Getting Started",
+     Style = 3,
+     SizeX = 400,
+     SizeY = 100,
+     Theme = "Light"
 })
-local main = window:CreateTab("Main | TAB")
 
-main:CreateLabel("CC2 Script | Made By Hyperglox#1238")
-main:CreateLabel("Discord Server | https://discord.gg/8Dh8hHeEXE")
-local DiscordServer = main:CreateButton("Test Button", function()
-    warn("Coming Soon...")
-end)
+local Page = UI.New({
+    Title = "Main"
+})
 
-if window:IsDestroyed() then
-    warn("Gui Has Been Destroyed!")
+Page.Button({
+    Text = "Click Me!",
+    Callback = function()
+       print("Clicked!") 
+    end
+})
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/saucekid/UI-Libraries/main/NotificationLib.lua"))()
+function err(txt)
+    Notification.Notify("Error", txt, "rbxassetid://1491260682", {
+        Duration = 3,
+        TitleSettings = {
+            BackgroundColor3 = Color3.fromRGB(200, 200 , 200),
+            TextColor3 = Color3.fromRGB(255, 0, 0),
+            TextScaled = true,
+            TextWrapped = true,
+            TextSize = 14,
+            Font = Enum.Font.SourceSansBold,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            TextYAlignment = Enum.TextYAlignment.Center
+        },
+        DescriptionSettings = {
+            BackgroundColor3 = Color3.fromRGB(200, 200 ,200),
+            TextColor3 = Color3.fromRGB(240, 240, 240),
+            TextScaled = true,
+            TextWrapped = true,
+            TextSize = 14,
+            Font = Enum.Font.SourceSansBold,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            TextYAlignment = Enum.TextYAlignment.Top,
+        },
+        IconSettings = {
+            BackgroundTransparency = 1,
+            BackgroundColor3 = Color3.fromRGB(255, 255, 255),               
+        },
+        GradientSettings = {
+            GradientEnabled = false,
+            SolidColorEnabled = true,
+            SolidColor = Color3.fromRGB(255,0,0),
+            Retract = true,
+            Extend = false,
+        },
+        Main = {
+            BorderColor3 = Color3.fromRGB(255, 0, 0),
+            BackgroundColor3 = Color3.fromRGB(30, 30, 30),
+            BackgroundTransparency = 0.05,
+            Rounding = false,
+            BorderSizePixel = 1
+        }
+    })
 end
+if not CarCollection or not rF or not rE then return err("Wrong game") else Notification.Notify("Car Crushers 2", "made by saucekid", Players:GetUserThumbnailAsync(LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)); wait(1) end -- check
