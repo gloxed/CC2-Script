@@ -66,4 +66,4 @@ function err(txt)
         }
     })
 end
-if not CarCollection or not rF or not rE then return err("Wrong game") else Notification.Notify("Car Crushers 2", "made by saucekid", Players:GetUserThumbnailAsync(LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)); wait(1) end -- check
+Notification.Notify("CC2", "Made By HYperglox")
